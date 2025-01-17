@@ -10,5 +10,14 @@ pipeline {
       }
     }
 
+    stage('st2') {
+      steps {
+        node(label: 'test') {
+          echo 'Hello world'
+        }
+
+      }
+    }
+
   }
 }

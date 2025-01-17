@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'test'
+    }
+
+  }
   stages {
     stage('install-lib') {
       steps {
@@ -15,7 +20,6 @@ pipeline {
 
     stage('stage3') {
       steps {
-        node(label: 'test')
         echo 'Hello World'
       }
     }

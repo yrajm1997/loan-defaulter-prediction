@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'test'
+    }
+
+  }
   stages {
     stage('install-lib') {
       steps {
@@ -10,6 +15,15 @@ pipeline {
     stage('run-py') {
       steps {
         sh 'python app.py'
+      }
+    }
+
+    stage('stage3') {
+      steps {
+        node(label: 'test') {
+          sh 'echo \'Hello World!\''
+        }
+
       }
     }
 

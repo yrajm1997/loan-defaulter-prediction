@@ -6,3 +6,5 @@ import gradio as gr
 df = pd.DataFrame({'A': [1, 2, 3],
                    'B': [1, 4, 9]})
 print(df.head(2))
+
+df.to_csv('sample.csv', index=False)

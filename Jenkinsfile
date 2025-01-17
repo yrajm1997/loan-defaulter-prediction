@@ -15,10 +15,8 @@ pipeline {
 
     stage('stage3') {
       steps {
-        node(label: 'test') {
-          sh 'echo \'Hello world!\''
-        }
-
+        node(label: 'test')
+        echo 'Hello World'
       }
     }
 

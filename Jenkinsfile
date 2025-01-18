@@ -3,13 +3,19 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'pip install -r requirements.txt'
+        node(label: 'mynode') {
+          sh 'pip install -r requirements.txt'
+        }
+
       }
     }
 
     stage('Run-Script') {
       steps {
-        sh 'python app.py'
+        node(label: 'mynode') {
+          sh 'python app.py'
+        }
+
       }
     }
 
